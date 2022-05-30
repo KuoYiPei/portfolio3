@@ -1,0 +1,857 @@
+head,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1920px;
+}
+
+.content,
+.full-width>div {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ab_center {
+    margin: auto;
+    right: 0;
+    left: 0;
+}
+
+
+/* Loading */
+
+#loading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background: #ff7d7d;
+    text-align: center;
+    color: #fff;
+}
+
+#loading_logo,
+.fv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#loading_logo img {
+    width: 100%;
+}
+
+
+/*popup notice content*/
+
+.popup-content {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+    z-index: 999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.popup-content img {
+    width: 80%;
+    margin: 1em auto;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+@media (min-width: 1000px) {
+    .popup-content img {
+        width: 49%;
+    }
+}
+
+.popup-content.show {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: scroll;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.popup-content.show img {
+    width: 90%;
+}
+
+@media (min-width: 1000px) {
+    .popup-content.show img {
+        width: 49%;
+    }
+}
+
+.popup2-content {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+    z-index: 999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.popup2-content img {
+    width: 80%;
+    margin: 1em auto;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+@media (min-width: 1000px) {
+    .popup2-content img {
+        width: 49%;
+    }
+}
+
+.popup2-content.show {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: scroll;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.popup2-content.show img {
+    width: 90%;
+}
+
+@media (min-width: 1000px) {
+    .popup2-content.show img {
+        width: 49%;
+    }
+}
+
+.popup3-content {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+    z-index: 999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.popup3-content img {
+    width: 80%;
+    margin: 1em auto;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+@media (min-width: 1000px) {
+    .popup2-content img {
+        width: 49%;
+    }
+}
+
+.popup3-content.show {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: scroll;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.popup3-content.show img {
+    width: 90%;
+}
+
+@media (min-width: 1000px) {
+    .popup3-content.show img {
+        width: 49%;
+    }
+}
+
+/*menu*/
+/*アクティブになったエリア*/
+#g-nav.panelactive{
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position:fixed;
+    z-index: 999;
+	top: 0;
+	width:100%;
+    height: 100vh;
+}
+
+/*丸の拡大*/
+.circle-bg{
+    position: fixed;
+	z-index:100;
+    /*丸の形*/
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #cb3b3b;
+    /*丸のスタート位置と形状*/
+	transform: scale(0);/*scaleをはじめは0に*/
+	bottom:-50px;
+    left:calc(50% - 50px);/*50%から円の半径を引いた値*/
+    transition: all .6s;/*0.6秒かけてアニメーション*/
+    opacity: .95;
+}
+
+.circle-bg.circleactive{
+	transform: scale(50);/*クラスが付与されたらscaleを拡大*/
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav-list{
+    display: none;/*はじめは表示なし*/
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 9999; 
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#g-nav.panelactive #g-nav-list{
+     display: block; /*クラスが付与されたら出現*/
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+	opacity: 0;/*はじめは透過0*/
+    /*ナビゲーション天地中央揃え※レイアウトによって調整してください。不必要なら削除*/
+    position: absolute;
+    z-index: 9999;
+    top:50%;
+    left:45%;
+    transform: translate(-50%,-50%);
+}
+
+/*背景が出現後にナビゲーションを表示*/
+#g-nav.panelactive ul {
+    opacity:1;
+}
+
+/* 背景が出現後にナビゲーション li を表示※レイアウトによって調整してください。不必要なら削除*/
+#g-nav.panelactive ul li{
+animation-name:gnaviAnime;
+animation-duration:1s;
+animation-delay:.2s;/*0.2 秒遅らせて出現*/
+animation-fill-mode:forwards;
+opacity:0;
+}
+@keyframes gnaviAnime{
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+
+
+/*リストのレイアウト設定*/
+#g-nav li{
+	text-align: center; 
+	list-style: none;
+}
+
+#g-nav li a{
+	color: #FFF;
+	text-decoration: none;
+	padding:10px;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0em;
+    font-weight: normal;
+    font-size: 25px;
+    border-bottom: #f9eaaf 1px dashed;
+}
+
+#g-nav li a:hover{
+	font-size: 30px;
+	transition: .3s;
+	-o-transition: .3s;
+	-moz-transition: .3s;
+    -webkit-transition: .3s;
+    color: #f9eaaf;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn1{
+	position:fixed;
+	top:10px;
+	right: 10px;
+	z-index: 99999;/*ボタンを最前面に*/
+	cursor: pointer;
+    width: 70px;
+    height:70px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: solid #cf4949;
+}
+	
+/*×に変化*/	
+.openbtn1 span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 19px;
+    height: 3px;
+    border-radius: 2px;
+	background-color: #cb3b3b;
+  	width: 45%;
+  }
+
+.openbtn1 span:nth-of-type(1) {
+	top:26px;	
+}
+
+.openbtn1 span:nth-of-type(2) {
+	top:34px;
+}
+
+.openbtn1 span:nth-of-type(3) {
+	top:42px;
+}
+
+.openbtn1.active span:nth-of-type(1) {
+    top: 27px;
+    left: 21px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 41%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.openbtn1.active span:nth-of-type(3){
+    top: 39px;
+    left: 21px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 41%;
+}
+/**/
+
+#BackTop{
+	position:fixed;
+	bottom:10px;
+	right: 10px;
+	z-index: 99;
+    text-align: center;
+	cursor: pointer;
+    width: 70px;
+    height:70px;
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    color:#fff;
+    background-color: #cf4949;
+    border-radius: 50%;
+    border: solid #fff;}
+
+/*movie start*/
+
+.movie {
+    position: absolute;
+    top: 29%;
+    right: 14%;
+    width: 79%;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    top: 5%;
+    left: 5%;
+    overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content,
+.offer {
+    position: relative;
+}
+
+/*按鈕 商品 png 設定*/
+.btn1 {
+    position: absolute;
+    width: 89%;
+    bottom: 2%;
+    left: 6%;
+}
+.btn1:hover {
+    bottom: 1.8%;
+    opacity: .8;
+}
+.btn2 {
+    position: absolute;
+    width: 91%;
+    bottom: 6%;
+    left: 5%;
+}
+.btn2:hover {
+    bottom: 5.8%;
+    opacity: .8;
+}
+.btn3 {
+    position: absolute;
+    width: 91%;
+    bottom: 7%;
+    left: 5%;
+}
+.btn3:hover {
+    bottom: 6.8%;
+    opacity: .8;
+}
+.btn4 {
+    position: absolute;
+    width: 89%;
+    bottom: 23%;
+    left: 1%;
+}
+.btn4:hover {
+    bottom: 22.8%;
+    opacity: .8;
+}
+.btn5 {
+    position: absolute;
+    width: 89%;
+    bottom: 23.5%;
+    left: 1%;
+}
+.btn5:hover {
+    bottom: 23.2%;
+    opacity: .8;
+}
+.btn6 {
+    position: absolute;
+    width: 41%;
+    bottom: 22%;
+    left: 4.5%;
+}
+.btn6:hover {
+    bottom: 21.8%;
+    opacity: .8;
+}
+.btn7 {
+    position: absolute;
+    width: 41%;
+    bottom: 22%;
+    left: 55%;
+}
+.btn7:hover {
+    bottom: 21.8%;
+    opacity: .8;
+}
+.png1 {
+    position: absolute;
+    width: 92%;
+    bottom: 80%;
+    left: 5%;}
+.png2 {
+    position: absolute;
+    width: 14%;
+    bottom: 56.5%;
+    left: 60%;}
+.png3 {
+    position: absolute;
+    width: 97%;
+    bottom: 12%;
+    left: 1%;}
+.png4 {
+    position: absolute;
+    width: 26%;
+    bottom: 51%;
+    left: 72%;}
+.png5 {
+    position: absolute;
+    width: 31%;
+    bottom: 54.5%;
+    left: 37%;}
+.png6 {
+    position: absolute;
+    width: 36%;
+    bottom: 61%;
+    left: 5%;}
+.png7 {
+    position: absolute;
+    width: 57%;
+    bottom: 23.5%;
+    left: 33%;}
+.png8 {
+    position: absolute;
+    width: 61%;
+    bottom: 13.5%;
+    left: 33%;}
+.png9 {
+    position: absolute;
+    width: 79%;
+    bottom: 2.5%;
+    left: 17%;}
+.png10 {
+    position: absolute;
+    width: 39%;
+    bottom: 68.5%;
+    left: 57%;}
+.png11 {
+    position: absolute;
+    width: 30%;
+    bottom: 53%;
+    left: 12%;}
+.png12 {
+    position: absolute;
+    width: 49%;
+    bottom: 38%;
+    left: 49%;}
+.png13 {
+    position: absolute;
+    width: 35%;
+    bottom: 16.5%;
+    left: 10%;}
+.png14 {
+    position: absolute;
+    width: 28%;
+    bottom: 0%;
+    left: 60%;}
+.png15 {
+    position: absolute;
+    width: 61%;
+    bottom: 20%;
+    left: 1%;}
+.png16 {
+    position: absolute;
+    width: 49%;
+    bottom: 48.5%;
+    left: 48%;}
+.png17 {
+    position: absolute;
+    width: 43%;
+    bottom: 12%;
+    left: 3%;}
+.png18 {
+    position: absolute;
+    width: 44%;
+    bottom: 41%;
+    left: 4%;}
+.png19 {
+    position: absolute;
+    width: 47%;
+    bottom: 23%;
+    left: 49%;}
+.png20 {
+    position: absolute;
+    width: 42%;
+    bottom: 18.5%;
+    left: 55%;}
+.png21 {
+    position: absolute;
+    width: 64%;
+    bottom: 24%;
+    left: 27%;}
+.png22 {
+    position: absolute;
+    width: 42%;
+    bottom: 29%;
+    left: 1%;}
+.png23 {
+    position: absolute;
+    width: 41%;
+    bottom: 50%;
+    left: 59%;}
+.png24 {
+    position: absolute;
+    width: 68%;
+    bottom: 20%;
+    left: 2%;}
+.png25 {
+    position: absolute;
+    width: 43%;
+    bottom: 9%;
+    left: 51%;}
+.png26 {
+    position: absolute;
+    width: 53%;
+    bottom: 10%;
+    left: 1%;}
+.png27 {
+    position: absolute;
+    width: 48%;
+    bottom: 35.5%;
+    left: 52%;}
+.png28 {
+    position: absolute;
+    width: 94%;
+    bottom: 9%;
+    left: 5%;}
+.png29 {
+    position: absolute;
+    width: 49%;
+    bottom: 70.5%;
+    left: 10%;}
+.png30 {
+    position: absolute;
+    width: 49%;
+    bottom: 52.5%;
+    left: 44%;}
+.png31 {
+    position: absolute;
+    width: 49%;
+    bottom: 36.5%;
+    left: 8%;}
+.png32 {
+    position: absolute;
+    width: 49%;
+    bottom: 19%;
+    left: 45%;}
+.png33 {
+    position: absolute;
+    width: 49%;
+    bottom: 1%;
+    left: 9%;}
+.png34 {
+    position: absolute;
+    width: 61%;
+    bottom: 43%;
+    left: 1%;}
+.png35 {
+    position: absolute;
+    width: 61%;
+    bottom: 46%;
+    left: 2%;}
+.png36 {
+    position: absolute;
+    width: 49%;
+    bottom: 32%;
+    left: 49%;}
+.gif4 {
+    position: absolute;
+    width: 82%;
+    bottom: 6%;
+    left: 9%;}
+.gif5 {
+    position: absolute;
+    width: 83%;
+    bottom: 73%;
+    left: 0%;}
+.gif6 {
+    position: absolute;
+    width: 66%;
+    bottom: 55%;
+    left: 0%;}
+.floating {
+    animation: float .5s infinite ease-in-out alternate;
+}
+
+@keyframes float {
+    from {
+        -webkit-transform: translateY(0.6vw);
+        transform: translateY(0.6vw);
+    }
+    to {
+        -webkit-transform: translateY(-0.6vw);
+        transform: translateY(-0.6vw);
+    }
+}
+
+/*background start*/
+.section1 {background-image: url("../images/Venus_mom_1_01.jpg");}
+.section2 {background-image: url("../images/Venus_mom_1_02.jpg");}
+.section3 {background-image: url("../images/Venus_mom_1_03.jpg");}
+.section4 {background-image: url("../images/Venus_mom_1_04.jpg");}
+.section5 {background-image: url("../images/Venus_mom_1_05.jpg");}
+.section6 {background-image: url("../images/Venus_mom_1_06.jpg");}
+.section7 {background-image: url("../images/Venus_mom_2_01.jpg");}
+.section8 {background-image: url("../images/Venus_mom_2_02.jpg");}
+.section9 {background-image: url("../images/Venus_mom_2_03.jpg");}
+.section10 {background-image: url("../images/Venus_mom_2_04.jpg");}
+.section11 {background-image: url("../images/Venus_mom_2_05.jpg");}
+.section12 {background-image: url("../images/Venus_mom_3_01.jpg");}
+.section13 {background-image: url("../images/Venus_mom_3_02.jpg");}
+.section14 {background-image: url("../images/Venus_mom_3_03.jpg");}
+.section15 {background-image: url("../images/Venus_mom_offer_01.jpg");}
+.section16 {background-image: url("../images/Venus_mom_offer_02.jpg");}
+.section17 {background-image: url("../images/Venus_mom_offer_03.jpg");}
+.section18 {background-image: url("../images/Venus_mom_offer_04.jpg");}
+
+.target-fix {
+    position: relative;
+    top: -50px;
+    /*----锚点偏移值----*/
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.buy {
+    overflow: hidden;
+}
+
+/*imgswing*/
+.imgswing {
+    animation: imgswing ease-in-out 1.2s infinite alternate;
+    transform-origin: center -7px;
+    float:left;
+}
+@keyframes imgswing {
+    0% { transform: rotate(2deg); }
+    100% { transform: rotate(-2deg); }
+}
+
+/* ボタンの光沢 */
+.is-reflection a {
+    overflow: hidden;
+}
+.is-reflection a:after {
+    -moz-animation: is-reflection 4s ease-in-out infinite;
+    -moz-transform: rotate(45deg);
+    -ms-animation: is-reflection 4s ease-in-out infinite;
+    -ms-transform: rotate(45deg);
+    -o-animation: is-reflection 4s ease-in-out infinite;
+    -o-transform: rotate(45deg);
+    -webkit-animation: is-reflection 4s ease-in-out infinite;
+    -webkit-transform: rotate(45deg);
+    animation: is-reflection 4s ease-in-out infinite;
+    background-color: #fff;
+    content: " ";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: -180px;
+    transform: rotate(45deg);
+    width: 30px;
+    border-radius: 30%;
+}
+
+/* アニメーションを遅延させる */
+
+.is-reflection+.is-reflection a:after {
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+}
+
+@keyframes is-reflection {
+    0% {
+        -webkit-transform: scale(0) rotate(45deg);
+        transform: scale(0) rotate(45deg);
+        opacity: 0;
+    }
+    80% {
+        -webkit-transform: scale(0) rotate(45deg);
+        transform: scale(0) rotate(45deg);
+        opacity: 0.5;
+    }
+    81% {
+        -webkit-transform: scale(4) rotate(45deg);
+        transform: scale(4) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(50) rotate(45deg);
+        transform: scale(50) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes is-reflection {
+    0% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0;
+    }
+    80% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0.5;
+    }
+    81% {
+        -webkit-transform: scale(4) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(50) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+     :root {
+        --swiper-navigation-size: 40px !important;
+        /*紅字是因為前面有--*/
+        /*--swiper-navigation-color: var(--swiper-theme-color);	  */
+    }
+    .swiper-button-next {
+        right: 3% !important;
+    }
+    .swiper-button-prev {
+        left: 3% !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: calc(var(--swiper-navigation-size)/ 44 * 27)!important;
+    }
+     :root {
+        --swiper-navigation-size: 33px !important;
+        /*紅字是因為前面有--*/
+        /*--swiper-navigation-color: var(--swiper-theme-color);	  */
+    }
+    .swiper-pagination-bullet {
+        width: 12px !important;
+        height: 12px !important;
+        margin: 0 15px!important;
+    }
+    .swiper-container .swiper-wrapper .swiper-slide {
+        width: 92% !important;
+        padding: 0 4% 0 4%;
+    }
+}
